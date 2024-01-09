@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[Assignment 1, Task 1]
+[Assignment 1, Task 5]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -9,11 +9,8 @@ __updated__ = "2024-01-09"
 -------------------------------------------------------
 """
 # Imports
-from functions import clean_list
+from functions import is_leap_year
 
-value = [1, 2, 0, 1, 4, 1, 1, 2, 2, 5, 4,
-         3, 1, 3, 3, 4, 2, 4, 3, 1, 3, 0, 3, 0, 0]
+year = 2023
 
-clean_list(value)
-
-print(value)
+print(is_leap_year(year))

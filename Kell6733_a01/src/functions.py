@@ -5,10 +5,13 @@
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-01-08"
+__updated__ = "2024-01-09"
 -------------------------------------------------------
 """
 # Imports
+from Tools.scripts.make_ctype import values
+from cgitb import small
+from ast import Num
 
 
 def clean_list(values):
@@ -25,10 +28,17 @@ def clean_list(values):
         None
     -------------------------------------------------------
     """
+    count = 0
+    no_dupes = []
+    for i in range(len(values)):
+        if values[i] in no_dupes:
+            values[i] = "temp"
+            count += 1
+        else:
+            no_dupes.append(values[i])
 
-    for i in values:
-        while values.count(i) > 1:
-            values.remove(i)
+    for i in range(count):
+        values.remove("temp")
 
     return
 
@@ -53,7 +63,7 @@ def list_subtraction(minuend, subtrahend):
         while minuend.count(i) > 0:
             minuend.remove(i)
 
-    return minuend
+    return
 
 
 def dsmvwl(string):
@@ -112,3 +122,138 @@ def file_analyze(fv):
                 whi += 1
             else:
                 rem += 1
+    return upp, low, dig, whi, rem
+
+
+def is_leap_year(year):
+    """
+    -------------------------------------------------------
+    Leap year determination.
+    Use: leap_year = is_leap_year(year)
+    -------------------------------------------------------
+    Parameters:
+        year - year to determine if it is a leap year (int > 0)
+    Returns:
+        leap_year - True if year is a leap year, False otherwise (boolean)
+    -------------------------------------------------------
+    """
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                leap_year = True
+            else:
+                leap_year = False
+        else:
+            leap_year = True
+    else:
+        leap_year = False
+
+    return leap_year
+
+
+def is_valid(name):
+    """
+    -------------------------------------------------------
+    Determines if name is a valid Python variable name.
+    Variables names must start with a letter or an underscore.
+    The rest of the variable name may consist of letters, numbers
+    and underscores.
+    Use: valid = is_valid(name)
+    -------------------------------------------------------
+    Parameters:
+        name - a string to test as a Python variable name (str)
+    Returns:
+        valid - True if name is a valid Python variable name,
+            False otherwise (boolean)
+    -------------------------------------------------------
+    """
+    valid = False
+    if name[0].isalpha() or name[0] == "_":
+        valid = True
+        for i in range(1, len(name)):
+            if not name[i].isalpha() and not name[i].isdigit() and name[i] != "_":
+                valid = False
+    return valid
+
+
+def max_diff(a):
+    """
+    -------------------------------------------------------
+    Returns maximum absolute difference between adjacent values in a list.
+    a must be unchanged.
+    Use: md = max_diff(a)
+    -------------------------------------------------------
+    Parameters:
+        a - a list of values (list of int)
+    Returns:
+        md - the largest absolute difference between adjacent
+            values in a list (int)
+    -------------------------------------------------------
+    """
+    md = 0
+    for i in range(len(a) - 1):
+        if md < a[i] - a[i+1]:
+            md = a[i] - a[i+1]
+
+    return md
+
+
+def matrix_stats(a):
+    """
+    -------------------------------------------------------
+    Determines the smallest, largest, total, and average of
+    the values in the 2D list a. You may assume there is at
+    least one value in a.
+    a must be unchanged.
+    Use: small, large, total, average = matrix_stats(a):
+    -------------------------------------------------------
+    Parameters:
+        a - a 2D list of numbers (2D list of float)
+    Returns:
+        small - the smallest number in a (float)
+        large - the largest number in a (float)
+        total - the total of all numbers in a (float)
+        average - the average of all numbers in a (float)
+    -------------------------------------------------------
+    """
+    total = average = count = 0
+    small = large = a[0][0]
+
+    for row in a:
+        for num in row:
+            total += num
+            count += 1
+            if num > large:
+                large = num
+            elif num < small:
+                small = num
+
+    average = total / count
+    return small, large, total, average
+
+
+def matrixes_add(a, b):
+    """
+    -------------------------------------------------------
+    Sums the contents of matrixes a and b. a and b must have
+    the same number of rows and columns.
+    a and b must be unchanged.
+    Use: c = matrixes_add(a, b)
+    -------------------------------------------------------
+    Parameters:
+        a - a 2D list (2D list of int/float)
+        b - a 2D list (2D list of int/float)
+    Returns:
+        c - the matrix sum of a and b (2D list of int/float)
+    -------------------------------------------------------
+    """
+    assert len(a) == len(b) and len(a[0]) == len(b[0])
+    c = []
+    for row in range(len(a)):
+        temp = []
+        for num in range(len(a[row])):
+            temp.append(a[row][num] + b[row][num])
+
+        c.append(temp)
+
+    return c
