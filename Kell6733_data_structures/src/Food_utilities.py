@@ -5,7 +5,7 @@ Food class utility functions.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2023-05-15"
+__updated__ = "2024-01-10"
 -------------------------------------------------------
 """
 from Food import Food
@@ -23,6 +23,18 @@ def get_food():
     """
 
     # Your code here
+    name = input("Name: ")
+
+    print(f"Origin \n{Food.origins()}")
+    place = int(input("Place of origin: "))
+    veg = input("Is vegetarian (Y/N): ")
+    if veg == "Y":
+        veg = True
+    else:
+        veg = False
+    cal = int(input("Calories per serving: "))
+
+    food = Food(name, place, veg, cal)
 
     return food
 
@@ -42,6 +54,9 @@ def read_food(line):
     """
 
     # Your code here
+    line = line.strip().split("|")
+
+    food = Food(line[0], int(line[1]), eval(line[2]), int(line[3]))
 
     return food
 
@@ -60,6 +75,13 @@ def read_foods(file_variable):
     """
 
     # Your code here
+    foods = []
+    line = file_variable.readline()
+
+    while line != "":
+        food = read_food(line)
+        foods.append(food)
+        line = file_variable.readline()
 
     return foods
 
@@ -80,8 +102,10 @@ def write_foods(file_variable, foods):
         None
     -------------------------------------------------------
     """
-
     # Your code here
+    for i in foods:
+        line = f'{i.name}|{i.origin}|{i.is_vegetarian}|{i.calories}\n'
+        file_variable.write(line)
 
     return
 
@@ -99,8 +123,11 @@ def get_vegetarian(foods):
         veggies - Food objects from foods that are vegetarian (list of Food)
     -------------------------------------------------------
     """
-
     # Your code here
+    veggies = []
+    for i in foods:
+        if i.is_vegetarian == True:
+            veggies.append(i)
 
     return veggies
 
@@ -120,7 +147,6 @@ def by_origin(foods, origin):
     -------------------------------------------------------
     """
     assert origin in range(len(Food.ORIGIN))
-
 
     # Your code here
 

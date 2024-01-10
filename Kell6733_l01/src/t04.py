@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[Lab 1, Task 3]
+[Lab 1, Task 4]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -10,7 +10,8 @@ __updated__ = "2024-01-10"
 """
 # Imports
 from Food import Food
-from Food_utilities import get_food
+from Food_utilities import read_food
 
-source = get_food()
-print(source)
+line = "Spanakopita|5|True|260"
+
+print(read_food(line))

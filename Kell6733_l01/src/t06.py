@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[Lab 1, Task 3]
+[Lab 1, Task 6]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -9,8 +9,11 @@ __updated__ = "2024-01-10"
 -------------------------------------------------------
 """
 # Imports
-from Food import Food
-from Food_utilities import get_food
+from Food_utilities import write_foods, read_foods
 
-source = get_food()
-print(source)
+
+fh = open("new_foods.txt", "w")
+
+write_foods(fh, foods)
+
+fh.close()
