@@ -5,7 +5,7 @@ Food class definition.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-01-08"
+__updated__ = "2024-01-09"
 -------------------------------------------------------
 """
 
@@ -35,10 +35,12 @@ class Food:
             string - A numbered list of valid food origins (str)
         -------------------------------------------------------
         """
-
         # your code here
+        string = ""
+        for i in range(len(Food.ORIGIN)):
+            string += f"{i:>2d} {Food.ORIGIN[i]}\n"
 
-        return
+        return string
 
     def __init__(self, name, origin, is_vegetarian, calories):
         """
@@ -76,10 +78,10 @@ class Food:
             string - the formatted contents of source (str)
         -------------------------------------------------------
         """
-
         # your code here
+        string = f'Name:       {self.name} \nOrigin:     {self.origin} \nVegetarian: {self.is_vegetarian} \nCalories:   {self.calories}'
 
-        return
+        return string
 
     def __eq__(self, target):
         """
