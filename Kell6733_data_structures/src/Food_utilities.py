@@ -5,7 +5,7 @@ Food class utility functions.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-01-10"
+__updated__ = "2024-01-11"
 -------------------------------------------------------
 """
 from Food import Food
@@ -149,6 +149,10 @@ def by_origin(foods, origin):
     assert origin in range(len(Food.ORIGIN))
 
     # Your code here
+    origins = []
+    for i in foods:
+        if i.origin == origin:
+            origins.append(i)
 
     return origins
 
@@ -166,8 +170,13 @@ def average_calories(foods):
         avg - average calories in all Food objects of foods (int)
     -------------------------------------------------------
     """
-
     # Your code here
+    total = count = 0
+    for i in foods:
+        total += i.calories
+        count += 1
+
+    avg = total // count
 
     return avg
 
@@ -189,6 +198,13 @@ def calories_by_origin(foods, origin):
     assert origin in range(len(Food.ORIGIN))
 
     # Your code here
+    count = total_cals = 0
+    for i in foods:
+        if i.origin == origin:
+            total_cals += i.calories
+            count += 1
+
+    avg = total_cals // count
 
     return avg
 
@@ -206,8 +222,14 @@ def food_table(foods):
         None
     -------------------------------------------------------
     """
-
     # Your code here
+    foods.sort()
+
+    print("Food                                Origin       Vegetarian Calories")
+    print("----------------------------------- ------------ ---------- --------")
+    for item in foods:
+        print(
+            f"{item.name:<36s}{Food.ORIGIN[item.origin]:<13s}{str(item.is_vegetarian):>10}{item.calories:>9}")
 
     return
 
@@ -230,7 +252,13 @@ def food_search(foods, origin, max_cals, is_veg):
     -------------------------------------------------------
     """
     assert origin in range(-1, len(Food.ORIGIN))
-
     # Your code here
+    result = []
+
+    for item in foods:
+        if item.origin == origin:
+            if max_cals >= item.calories or max_cals == 0:
+                if is_veg == item.is_vegetarian:
+                    result.append(item)
 
     return result
