@@ -1,0 +1,495 @@
+"""
+-------------------------------------------------------
+Lab/Assignment  Testing
+-------------------------------------------------------
+Author:  Spencer Kelly
+ID:         169066733
+Email:   Kell6733@mylaurier.ca
+Version: 2024-01-11
+-------------------------------------------------------
+"""
+-------------------------------------------------------
+t01
+-------------------------------------------------------
+True
+4
+
+-------------------------------------------------------
+t02
+-------------------------------------------------------
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1] [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+[]
+Stack is empty
+Pushed 10 to stack
+Stack is not empty
+Peaking: 10
+Popping: 10
+Pushed 9 to stack
+Stack is not empty
+Peaking: 9
+Popping: 9
+Pushed 8 to stack
+Stack is not empty
+Peaking: 8
+Popping: 8
+Pushed 7 to stack
+Stack is not empty
+Peaking: 7
+Popping: 7
+Pushed 6 to stack
+Stack is not empty
+Peaking: 6
+Popping: 6
+Pushed 5 to stack
+Stack is not empty
+Peaking: 5
+Popping: 5
+Pushed 4 to stack
+Stack is not empty
+Peaking: 4
+Popping: 4
+Pushed 3 to stack
+Stack is not empty
+Peaking: 3
+Popping: 3
+Pushed 2 to stack
+Stack is not empty
+Peaking: 2
+Popping: 2
+Pushed 1 to stack
+None
+
+-------------------------------------------------------
+t03
+-------------------------------------------------------
+Stack is empty
+Stack is not empty
+Peaking: Name:       Lasagna 
+Origin:     7 
+Vegetarian: False 
+Calories:   135
+Popping: Name:       Lasagna 
+Origin:     7 
+Vegetarian: False 
+Calories:   135
+Stack is not empty
+Peaking: Name:       Butter Chicken 
+Origin:     2 
+Vegetarian: False 
+Calories:   490
+Popping: Name:       Butter Chicken 
+Origin:     2 
+Vegetarian: False 
+Calories:   490
+Stack is not empty
+Peaking: Name:       Moo Goo Guy Pan 
+Origin:     1 
+Vegetarian: False 
+Calories:   272
+Popping: Name:       Moo Goo Guy Pan 
+Origin:     1 
+Vegetarian: False 
+Calories:   272
+Stack is not empty
+Peaking: Name:       Vegetable Alicha 
+Origin:     3 
+Vegetarian: True 
+Calories:   138
+Popping: Name:       Vegetable Alicha 
+Origin:     3 
+Vegetarian: True 
+Calories:   138
+Stack is not empty
+Peaking: Name:       Spanakopita 
+Origin:     5 
+Vegetarian: True 
+Calories:   260
+Popping: Name:       Spanakopita 
+Origin:     5 
+Vegetarian: True 
+Calories:   260
+Stack is not empty
+Peaking: Name:       Chirashi Don 
+Origin:     6 
+Vegetarian: False 
+Calories:   600
+Popping: Name:       Chirashi Don 
+Origin:     6 
+Vegetarian: False 
+Calories:   600
+Stack is not empty
+Peaking: Name:       Canuck Burger 
+Origin:     0 
+Vegetarian: False 
+Calories:   7500
+Popping: Name:       Canuck Burger 
+Origin:     0 
+Vegetarian: False 
+Calories:   7500
+Stack is not empty
+Peaking: Name:       Turducken 
+Origin:     8 
+Vegetarian: False 
+Calories:   12240
+Popping: Name:       Turducken 
+Origin:     8 
+Vegetarian: False 
+Calories:   12240
+Stack is not empty
+Peaking: Name:       Shark Fin Soup 
+Origin:     1 
+Vegetarian: False 
+Calories:   46
+Popping: Name:       Shark Fin Soup 
+Origin:     1 
+Vegetarian: False 
+Calories:   46
+Stack is not empty
+Peaking: Name:       Chamuco 
+Origin:     4 
+Vegetarian: True 
+Calories:   150
+Popping: Name:       Chamuco 
+Origin:     4 
+Vegetarian: True 
+Calories:   150
+Stack is not empty
+Peaking: Name:       Natto 
+Origin:     6 
+Vegetarian: True 
+Calories:   212
+Popping: Name:       Natto 
+Origin:     6 
+Vegetarian: True 
+Calories:   212
+Stack is not empty
+Peaking: Name:       Canada Goose Chili 
+Origin:     0 
+Vegetarian: False 
+Calories:   199
+Popping: Name:       Canada Goose Chili 
+Origin:     0 
+Vegetarian: False 
+Calories:   199
+Stack is not empty
+Peaking: Name:       Diet Free-Range Gluten-free Water 
+Origin:     8 
+Vegetarian: True 
+Calories:   0
+Popping: Name:       Diet Free-Range Gluten-free Water 
+Origin:     8 
+Vegetarian: True 
+Calories:   0
+Stack is not empty
+Peaking: Name:       Kung Pao Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   229
+Popping: Name:       Kung Pao Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   229
+Stack is not empty
+Peaking: Name:       General Tao Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   850
+Popping: Name:       General Tao Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   850
+Stack is not empty
+Peaking: Name:       Spicy Vegetable Moo Shu 
+Origin:     1 
+Vegetarian: True 
+Calories:   140
+Popping: Name:       Spicy Vegetable Moo Shu 
+Origin:     1 
+Vegetarian: True 
+Calories:   140
+Stack is not empty
+Peaking: Name:       BBQ Pork 
+Origin:     1 
+Vegetarian: False 
+Calories:   920
+Popping: Name:       BBQ Pork 
+Origin:     1 
+Vegetarian: False 
+Calories:   920
+Stack is not empty
+Peaking: Name:       Orange Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   800
+Popping: Name:       Orange Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   800
+Stack is not empty
+Peaking: Name:       Vegetables with Cashew Nuts 
+Origin:     1 
+Vegetarian: True 
+Calories:   143
+Popping: Name:       Vegetables with Cashew Nuts 
+Origin:     1 
+Vegetarian: True 
+Calories:   143
+Stack is not empty
+Peaking: Name:       Lemon Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   226
+Popping: Name:       Lemon Chicken 
+Origin:     1 
+Vegetarian: False 
+Calories:   226
+Stack is not empty
+Peaking: Name:       Beef with Green Pepper 
+Origin:     1 
+Vegetarian: False 
+Calories:   251
+Popping: Name:       Beef with Green Pepper 
+Origin:     1 
+Vegetarian: False 
+Calories:   251
+Stack is not empty
+Peaking: Name:       Sweet and Sour Pork 
+Origin:     1 
+Vegetarian: False 
+Calories:   231
+Popping: Name:       Sweet and Sour Pork 
+Origin:     1 
+Vegetarian: False 
+Calories:   231
+Stack is not empty
+Peaking: Name:       Szechuan Shrimp 
+Origin:     1 
+Vegetarian: False 
+Calories:   516
+Popping: Name:       Szechuan Shrimp 
+Origin:     1 
+Vegetarian: False 
+Calories:   516
+Stack is not empty
+Peaking: Name:       Poutine 
+Origin:     0 
+Vegetarian: False 
+Calories:   710
+Popping: Name:       Poutine 
+Origin:     0 
+Vegetarian: False 
+Calories:   710
+Stack is not empty
+Peaking: Name:       Teppanyaki 
+Origin:     6 
+Vegetarian: False 
+Calories:   200
+Popping: Name:       Teppanyaki 
+Origin:     6 
+Vegetarian: False 
+Calories:   200
+Stack is not empty
+Peaking: Name:       Greek Salad 
+Origin:     5 
+Vegetarian: True 
+Calories:   185
+Popping: Name:       Greek Salad 
+Origin:     5 
+Vegetarian: True 
+Calories:   185
+Stack is not empty
+Peaking: Name:       Fettuccine 
+Origin:     7 
+Vegetarian: False 
+Calories:   266
+Popping: Name:       Fettuccine 
+Origin:     7 
+Vegetarian: False 
+Calories:   266
+Stack is not empty
+Peaking: Name:       Teriyaki 
+Origin:     6 
+Vegetarian: False 
+Calories:   233
+Popping: Name:       Teriyaki 
+Origin:     6 
+Vegetarian: False 
+Calories:   233
+Stack is not empty
+Peaking: Name:       Shortbread  
+Origin:     9 
+Vegetarian: True 
+Calories:   502
+Popping: Name:       Shortbread  
+Origin:     9 
+Vegetarian: True 
+Calories:   502
+Stack is not empty
+Peaking: Name:       Pavlova 
+Origin:     10 
+Vegetarian: True 
+Calories:   272
+Popping: Name:       Pavlova 
+Origin:     10 
+Vegetarian: True 
+Calories:   272
+Stack is not empty
+Peaking: Name:       Hokey Pokey Ice Cream 
+Origin:     10 
+Vegetarian: True 
+Calories:   106
+Popping: Name:       Hokey Pokey Ice Cream 
+Origin:     10 
+Vegetarian: True 
+Calories:   106
+Stack is not empty
+Peaking: Name:       Fricot 
+Origin:     0 
+Vegetarian: False 
+Calories:   360
+Popping: Name:       Fricot 
+Origin:     0 
+Vegetarian: False 
+Calories:   360
+Stack is not empty
+Peaking: Name:       Chip Butty 
+Origin:     11 
+Vegetarian: True 
+Calories:   956
+Popping: Name:       Chip Butty 
+Origin:     11 
+Vegetarian: True 
+Calories:   956
+Stack is not empty
+Peaking: Name:       Grilled Salmon 
+Origin:     0 
+Vegetarian: False 
+Calories:   511
+Popping: Name:       Grilled Salmon 
+Origin:     0 
+Vegetarian: False 
+Calories:   511
+Stack is not empty
+Peaking: Name:       Ravioli 
+Origin:     7 
+Vegetarian: False 
+Calories:   246
+Popping: Name:       Ravioli 
+Origin:     7 
+Vegetarian: False 
+Calories:   246
+Stack is not empty
+Peaking: Name:       Crepe 
+Origin:     7 
+Vegetarian: True 
+Calories:   186
+Popping: Name:       Crepe 
+Origin:     7 
+Vegetarian: True 
+Calories:   186
+Stack is not empty
+Peaking: Name:       Fried Rice 
+Origin:     1 
+Vegetarian: False 
+Calories:   425
+Popping: Name:       Fried Rice 
+Origin:     1 
+Vegetarian: False 
+Calories:   425
+Stack is not empty
+Peaking: Name:       Pepperoni Pizza 
+Origin:     7 
+Vegetarian: False 
+Calories:   713
+Popping: Name:       Pepperoni Pizza 
+Origin:     7 
+Vegetarian: False 
+Calories:   713
+Stack is not empty
+Peaking: Name:       Chicken Kabob 
+Origin:     2 
+Vegetarian: False 
+Calories:   167
+Popping: Name:       Chicken Kabob 
+Origin:     2 
+Vegetarian: False 
+Calories:   167
+Stack is not empty
+Peaking: Name:       Panzerotti 
+Origin:     7 
+Vegetarian: False 
+Calories:   770
+Popping: Name:       Panzerotti 
+Origin:     7 
+Vegetarian: False 
+Calories:   770
+Stack is not empty
+Peaking: Name:       Spring Rolls 
+Origin:     1 
+Vegetarian: True 
+Calories:   200
+Popping: Name:       Spring Rolls 
+Origin:     1 
+Vegetarian: True 
+Calories:   200
+Stack is not empty
+Peaking: Name:       Chicken Chow Mein 
+Origin:     1 
+Vegetarian: False 
+Calories:   178
+Popping: Name:       Chicken Chow Mein 
+Origin:     1 
+Vegetarian: False 
+Calories:   178
+
+-------------------------------------------------------
+t04 
+-------------------------------------------------------
+
+-------------------------------------------------------
+t05
+-------------------------------------------------------
+
+
+-------------------------------------------------------
+t06
+-------------------------------------------------------
+
+-------------------------------------------------------
+t07
+-------------------------------------------------------
+
+-------------------------------------------------------
+t08
+-------------------------------------------------------
+
+-------------------------------------------------------
+t09
+-------------------------------------------------------
+
+-------------------------------------------------------
+t10
+-------------------------------------------------------
+
+-------------------------------------------------------
+t11
+-------------------------------------------------------
+
+-------------------------------------------------------
+t12
+-------------------------------------------------------
+
+-------------------------------------------------------
+t13
+-------------------------------------------------------
+
+-------------------------------------------------------
+t14
+-------------------------------------------------------
+
+
+-------------------------------------------------------
+t15
+-------------------------------------------------------
+
+-------------------------------------------------------
