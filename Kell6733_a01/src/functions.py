@@ -5,13 +5,10 @@
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-01-09"
+__updated__ = "2024-01-13"
 -------------------------------------------------------
 """
 # Imports
-from Tools.scripts.make_ctype import values
-from cgitb import small
-from ast import Num
 
 
 def clean_list(values):
