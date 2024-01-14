@@ -6,7 +6,7 @@ Author:  David Brown
 ID:      999999999
 Email:   dbrown@wlu.ca
 Section: CP164 A
-__updated__ = "2024-01-11"
+__updated__ = "2024-01-13"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -110,3 +110,41 @@ class Stack:
         """
         for value in self._values[::-1]:
             yield value
+
+    def combine(self, source1, source2):
+        """
+        -------------------------------------------------------
+        Combines two source stacks into the current target stack.
+        When finished, the contents of source1 and source2 are interlaced
+        into target and source1 and source2 are empty.
+        Use: target.combine(source1, source2)
+        -------------------------------------------------------
+        Parameters:
+            source1 - an array-based stack (Stack)
+            source2 - an array-based stack (Stack)
+        Returns:
+            None
+        -------------------------------------------------------
+        """
+        # Your code here
+        while not source1.is_empty() or not source2.is_empty():
+            if not source1.is_empty():
+                self._values.append(source1.pop())
+            if not source2.is_empty():
+                self._values.append(source2.pop())
+
+        return
+
+    def reverse(self):
+        """
+        -------------------------------------------------------
+        Reverses the contents of the source stack.
+        Use: source.reverse()
+        -------------------------------------------------------
+        Returns:
+            None
+        -------------------------------------------------------
+        """
+        self._values.reverse()
+
+        return

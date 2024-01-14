@@ -10,6 +10,7 @@ __updated__ = "2024-01-13"
 """
 # Imports
 from Stack_array import Stack
+from utilities import array_to_stack, stack_to_array
 
 # Constants
 OPERATORS = "+-*/"
@@ -41,25 +42,6 @@ def stack_combine(source1, source2):
     return target
 
 
-def combine(self, source1, source2):
-    """
-    -------------------------------------------------------
-    Combines two source stacks into the current target stack.
-    When finished, the contents of source1 and source2 are interlaced
-    into target and source1 and source2 are empty.
-    Use: target.combine(source1, source2)
-    -------------------------------------------------------
-    Parameters:
-        source1 - an array-based stack (Stack)
-        source2 - an array-based stack (Stack)
-    Returns:
-        None
-    -------------------------------------------------------
-    """
-
-    return
-
-
 def stack_reverse(source):
     """
     -------------------------------------------------------
@@ -72,18 +54,12 @@ def stack_reverse(source):
         None
     -------------------------------------------------------
     """
+    list = []
+    stack_to_array(source, list)
 
+    array_to_stack(source, list)
 
-def reverse(self):
-    """
-    -------------------------------------------------------
-    Reverses the contents of the source stack.
-    Use: source.reverse()
-    -------------------------------------------------------
-    Returns:
-        None
-    -------------------------------------------------------
-    """
+    return
 
 
 def is_palindrome_stack(string):
