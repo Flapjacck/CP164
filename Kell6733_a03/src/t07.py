@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[assignment 3, Task 5]
+[assignment 3, Task 7]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -9,9 +9,11 @@ __updated__ = "2024-01-17"
 -------------------------------------------------------
 """
 # Imports
-from functions import is_palindrome_stack
+from functions import stack_maze
 from Stack_array import Stack
 
-string = input("Enter a string: ")
-palindrome = is_palindrome_stack(string)
-print(palindrome)
+
+maze = {'Start': ['A'], 'A': ['B', 'C'], 'B': [], 'C': ['D', 'E'],
+        'D': [], 'E': ['F', 'X'], 'F': ['G', 'H'], 'G': [], 'H': []}
+path = stack_maze(maze)
+print("Path found:", path)

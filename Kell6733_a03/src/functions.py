@@ -5,7 +5,7 @@
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-01-13"
+__updated__ = "2024-01-17"
 -------------------------------------------------------
 """
 # Imports
@@ -75,6 +75,21 @@ def is_palindrome_stack(string):
         palindrome - True if string is a palindrome, False otherwise (bool)
     -------------------------------------------------------
     """
+    string = string.lower()
+    string = string.replace(" ", "")
+
+    stack = Stack()
+    for i in string:
+        stack.push(i)
+
+    palindrome = True
+
+    while not stack.is_empty():
+        if stack.pop() != string[0]:
+            palindrome = False
+        string = string[1:]
+
+    return palindrome
 
 
 def postfix(string):
@@ -89,6 +104,25 @@ def postfix(string):
         answer - the result of evaluating string (float)
     -------------------------------------------------------
     """
+
+    stack = Stack()
+    elements = string.split()
+    for e in elements:
+        if e not in OPERATORS:
+            stack.push(e)
+        else:
+            top = float(stack.pop())
+            second = float(stack.pop())
+            if e == "+":
+                stack.push(second+top)
+            elif e == "-":
+                stack.push(second-top)
+            elif e == "*":
+                stack.push(second*top)
+            else:
+                stack.push(second/top)
+    answer = stack.pop()
+    return answer
 
 
 def stack_maze(maze):
@@ -108,3 +142,22 @@ def stack_maze(maze):
             None if there is no exit (list of str)
     -------------------------------------------------------
     """
+    path = []
+
+    position = "Start"
+    choice = maze[position]
+    if "X" in choice:
+        path.append("X")
+
+    stack = Stack()
+    while "X" not in choice:
+        for i in choice:
+            stack.push(i)
+        position = stack.pop()
+        if maze[position] != []:
+            path.append(position)
+        choice = maze[position]
+        if "X" in choice:
+            path.append("X")
+
+    return path

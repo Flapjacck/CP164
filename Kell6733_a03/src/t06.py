@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[assignment 3, Task 5]
+[Assignment 3, Task 6]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -9,9 +9,10 @@ __updated__ = "2024-01-17"
 -------------------------------------------------------
 """
 # Imports
-from functions import is_palindrome_stack
 from Stack_array import Stack
+from functions import postfix
 
-string = input("Enter a string: ")
-palindrome = is_palindrome_stack(string)
-print(palindrome)
+string = "5 1 2 + 4 * + 3 -"
+answer = postfix(string)
+
+print(answer)
