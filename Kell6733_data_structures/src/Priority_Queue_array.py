@@ -6,7 +6,7 @@ Author:  David Brown
 ID:      999999999
 Email:   dbrown@wlu.ca
 Section: CP164 C
-__updated__ = "2019-04-27"
+__updated__ = "2024-01-20"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -68,6 +68,8 @@ class Priority_Queue:
         self._values.append(deepcopy(value))
 
         # your code here
+        if self._first is None or self._values[self._first] > value:
+            self._first = len(self._values) - 1
 
         return
 
@@ -85,6 +87,7 @@ class Priority_Queue:
         assert len(self._values) > 0, "Cannot peek at an empty priority queue"
 
         # your code here
+        value = deepcopy(self._values[self._first])
 
         return value
 
@@ -102,6 +105,8 @@ class Priority_Queue:
         assert len(self._values) > 0, "Cannot remove from an empty priority queue"
 
         # your code here
+        value = self._values.pop(self._first)
+        self._set_first()
 
         return value
 

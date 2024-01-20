@@ -1,20 +1,19 @@
 """
 -------------------------------------------------------
-[Lab 3, Task 1]
+[Lab 3, Task 4]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-01-19"
+__updated__ = "2024-01-20"
 -------------------------------------------------------
 """
 # Imports
-from Queue_array import Queue
+from Priority_Queue_array import Priority_Queue
+from utilities import priority_queue_test
 
-q = Queue()
-q.insert(1)
-q.insert(2)
-q.insert(3)
+fh = open('foods.txt', 'r')
 
-print(q.remove())
-print(q.peek())
+print(priority_queue_test(fh))
+
+fh.close()

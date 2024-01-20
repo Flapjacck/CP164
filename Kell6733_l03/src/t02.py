@@ -1,6 +1,6 @@
 """
 -------------------------------------------------------
-[Lab 3, Task 1]
+[Lab 3, Task 2]
 -------------------------------------------------------
 Author:  Spencer Kelly
 ID:         169066733
@@ -10,11 +10,11 @@ __updated__ = "2024-01-19"
 """
 # Imports
 from Queue_array import Queue
+from utilities import array_to_queue, queue_test
 
+s = [1, 2, 3, 4, 5]
 q = Queue()
-q.insert(1)
-q.insert(2)
-q.insert(3)
+#array_to_queue(q, s)
 
-print(q.remove())
-print(q.peek())
+queue_test(s)
+# print(q._values)
