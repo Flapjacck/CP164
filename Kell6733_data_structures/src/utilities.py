@@ -5,13 +5,14 @@
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-01-20"
+__updated__ = "2024-01-28"
 -------------------------------------------------------
 """
 # Imports
 from Stack_array import Stack
 from Queue_array import Queue
 from Priority_Queue_array import Priority_Queue
+from List_array import List
 
 
 def array_to_stack(stack, source):
@@ -229,5 +230,85 @@ def priority_queue_test(a):
             print('Queue is empty')
         pq.insert(data)
         print('Pushed {} to Queue'.format(data))
+
+    return
+
+
+def array_to_list(llist, source):
+    """
+    -------------------------------------------------------
+    Appends contests of source to llist. At finish, source is empty.
+    Last element in source is at rear of llist,
+    first element in source is at front of llist.
+    Use: array_to_list(llist, source)
+    -------------------------------------------------------
+    Parameters:
+        llist - a List object (List)
+        source - a Python list (list)
+    Returns:
+        None
+    -------------------------------------------------------
+    """
+    while len(source) > 0:
+        llist.append(source.pop(0))
+
+    return
+
+
+def list_to_array(llist, target):
+    """
+    -------------------------------------------------------
+    Removes contents of llist into target. At finish, llist is empty.
+    Front element of llist is at front of target,
+    rear element of llist is at rear of target.
+    Use: list_to_array(llist, target)
+    -------------------------------------------------------
+    Parameters:
+        llist - a List object (List)
+        target - a Python list (list)
+    Returns:
+        None
+    -------------------------------------------------------
+    """
+    while llist.is_empty() != True:
+        target.append(llist.pop(0))
+    return
+
+
+def list_test(source):
+    """
+    -------------------------------------------------------
+    Tests List implementation.
+    The methods of List are tested for both empty and
+    non-empty lists using the data in source
+    Use: list_test(source)
+    -------------------------------------------------------
+    Parameters:
+        source - list of data (list of ?)
+    Returns:
+        None
+    -------------------------------------------------------
+    """
+    lst = List()
+
+    # tests for the List methods go here
+    # print the results of the method calls and verify by hand
+    for data in source:
+        if not lst.is_empty():
+            print("list is not empty")
+            print("max:", lst.max())
+            print("min:", lst.min())
+            print("count 99's:", lst.count(99))
+            print("index of 99", lst.index(99))
+            print("find 99:", lst.find(99))
+            print("removing 99:", lst.remove(99))
+        else:
+            print('list is empty')
+        line = data.strip().split("|")
+        lst.insert(0, int(line[3]))
+        lst.append(99)
+        print('inserted {} and appended 99 to list'.format(int(line[3])))
+
+    return
 
     return

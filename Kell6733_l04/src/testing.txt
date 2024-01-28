@@ -1,0 +1,411 @@
+"""
+-------------------------------------------------------
+Lab/Assignment  Testing
+-------------------------------------------------------
+Author:  Spencer Kelly
+ID:         169066733
+Email:   Kell6733@mylaurier.ca
+Version: 2024-01-27
+-------------------------------------------------------
+"""
+-------------------------------------------------------
+t01
+-------------------------------------------------------
+
+-------------------------------------------------------
+t02
+-------------------------------------------------------
+[1, 2, 3, 4, 5, 6, 7] []
+[] [1, 2, 3, 4, 5, 6, 7]
+
+-------------------------------------------------------
+t03
+-------------------------------------------------------
+list is empty
+inserted 135 and appended 99 to list
+list is not empty
+max: 135
+min: 99
+count 99's: 1
+index of 99 1
+find 99: 99
+removing 99: 99
+inserted 490 and appended 99 to list
+list is not empty
+max: 490
+min: 99
+count 99's: 1
+index of 99 2
+find 99: 99
+removing 99: 99
+inserted 272 and appended 99 to list
+list is not empty
+max: 490
+min: 99
+count 99's: 1
+index of 99 3
+find 99: 99
+removing 99: 99
+inserted 138 and appended 99 to list
+list is not empty
+max: 490
+min: 99
+count 99's: 1
+index of 99 4
+find 99: 99
+removing 99: 99
+inserted 260 and appended 99 to list
+list is not empty
+max: 490
+min: 99
+count 99's: 1
+index of 99 5
+find 99: 99
+removing 99: 99
+inserted 600 and appended 99 to list
+list is not empty
+max: 600
+min: 99
+count 99's: 1
+index of 99 6
+find 99: 99
+removing 99: 99
+inserted 7500 and appended 99 to list
+list is not empty
+max: 7500
+min: 99
+count 99's: 1
+index of 99 7
+find 99: 99
+removing 99: 99
+inserted 12240 and appended 99 to list
+list is not empty
+max: 12240
+min: 99
+count 99's: 1
+index of 99 8
+find 99: 99
+removing 99: 99
+inserted 46 and appended 99 to list
+list is not empty
+max: 12240
+min: 46
+count 99's: 1
+index of 99 9
+find 99: 99
+removing 99: 99
+inserted 150 and appended 99 to list
+list is not empty
+max: 12240
+min: 46
+count 99's: 1
+index of 99 10
+find 99: 99
+removing 99: 99
+inserted 212 and appended 99 to list
+list is not empty
+max: 12240
+min: 46
+count 99's: 1
+index of 99 11
+find 99: 99
+removing 99: 99
+inserted 199 and appended 99 to list
+list is not empty
+max: 12240
+min: 46
+count 99's: 1
+index of 99 12
+find 99: 99
+removing 99: 99
+inserted 0 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 13
+find 99: 99
+removing 99: 99
+inserted 229 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 14
+find 99: 99
+removing 99: 99
+inserted 850 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 15
+find 99: 99
+removing 99: 99
+inserted 140 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 16
+find 99: 99
+removing 99: 99
+inserted 920 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 17
+find 99: 99
+removing 99: 99
+inserted 800 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 18
+find 99: 99
+removing 99: 99
+inserted 143 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 19
+find 99: 99
+removing 99: 99
+inserted 226 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 20
+find 99: 99
+removing 99: 99
+inserted 251 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 21
+find 99: 99
+removing 99: 99
+inserted 231 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 22
+find 99: 99
+removing 99: 99
+inserted 516 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 23
+find 99: 99
+removing 99: 99
+inserted 710 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 24
+find 99: 99
+removing 99: 99
+inserted 200 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 25
+find 99: 99
+removing 99: 99
+inserted 185 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 26
+find 99: 99
+removing 99: 99
+inserted 266 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 27
+find 99: 99
+removing 99: 99
+inserted 233 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 28
+find 99: 99
+removing 99: 99
+inserted 502 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 29
+find 99: 99
+removing 99: 99
+inserted 272 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 30
+find 99: 99
+removing 99: 99
+inserted 106 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 31
+find 99: 99
+removing 99: 99
+inserted 360 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 32
+find 99: 99
+removing 99: 99
+inserted 956 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 33
+find 99: 99
+removing 99: 99
+inserted 511 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 34
+find 99: 99
+removing 99: 99
+inserted 246 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 35
+find 99: 99
+removing 99: 99
+inserted 186 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 36
+find 99: 99
+removing 99: 99
+inserted 425 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 37
+find 99: 99
+removing 99: 99
+inserted 713 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 38
+find 99: 99
+removing 99: 99
+inserted 167 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 39
+find 99: 99
+removing 99: 99
+inserted 770 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 40
+find 99: 99
+removing 99: 99
+inserted 200 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 41
+find 99: 99
+removing 99: 99
+inserted 178 and appended 99 to list
+list is not empty
+max: 12240
+min: 0
+count 99's: 1
+index of 99 42
+find 99: 99
+removing 99: 99
+inserted 298 and appended 99 to list
+
+-------------------------------------------------------
+t04 
+-------------------------------------------------------
+
+-------------------------------------------------------
+t05
+-------------------------------------------------------
+
+-------------------------------------------------------
+t06
+-------------------------------------------------------
+
+-------------------------------------------------------
+t07
+-------------------------------------------------------
+
+-------------------------------------------------------
+t08
+-------------------------------------------------------
+
+-------------------------------------------------------
+t09
+-------------------------------------------------------
+
+-------------------------------------------------------
+t10
+-------------------------------------------------------
+
+-------------------------------------------------------
+t11
+-------------------------------------------------------
+
+-------------------------------------------------------
+t12
+-------------------------------------------------------
+
+-------------------------------------------------------
+t13
+-------------------------------------------------------
+
+-------------------------------------------------------
+t14
+-------------------------------------------------------
+
+-------------------------------------------------------
+t15
+-------------------------------------------------------
+
+-------------------------------------------------------
