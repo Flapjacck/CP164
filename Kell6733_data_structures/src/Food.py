@@ -5,7 +5,7 @@ Food class definition.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-01-09"
+__updated__ = "2024-01-28"
 -------------------------------------------------------
 """
 
@@ -95,7 +95,7 @@ class Food:
             result - True if name and origin match, False otherwise (boolean)
         -------------------------------------------------------
         """
-        result = (self.name.lower(), self.origin) < \
+        result = (self.name.lower(), self.origin) == \
             (target.name.lower(), target.origin)
         return result
 
