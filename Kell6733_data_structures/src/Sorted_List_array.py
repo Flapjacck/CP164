@@ -5,7 +5,7 @@ Array version of the Sorted_List ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-01-29"
+__updated__ = "2024-02-02"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -79,7 +79,7 @@ class Sorted_List:
         """
         # Your code here
 
-        return
+        return len(self._values)
 
     def _binary_search(self, key):
         """
@@ -98,7 +98,26 @@ class Sorted_List:
         """
         # Your code here
 
-        return
+        low = 0
+
+        high = len(self._values) - 1
+
+        while low < high:
+
+            mid = (high - low) // 2 + low
+
+            if self._values[mid] < key:
+
+                low = mid + 1
+            else:
+
+                high = mid
+
+        if low == high and self._values[low] == key:
+            i = low + 1
+        else:
+            i = -1
+        return i
 
     def _is_valid_index(self, i):
         """
@@ -203,12 +222,7 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
-        value = None
-        for i in self._values:
-            if i == key:
-                value = deepcopy(i)
-            else:
-                value = None
+        value = deepcopy(self._binary_search(key))
 
         return value
 
@@ -225,8 +239,13 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in range(len(self._values)):
+            if self._values[i] == key:
+                i = i
+            else:
+                i = -1
 
-        return
+        return i
 
     def insert(self, value):
         """
@@ -243,6 +262,22 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+
+        low = 0
+
+        high = len(self._values) - 1
+
+        while low <= high:
+
+            mid = (high - low) // 2 + low
+
+            if self._values[mid] > value:
+
+                high = mid - 1
+            else:
+
+                low = mid + 1
+        self._values.insert(low, value)
 
         return
 
@@ -261,6 +296,10 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in range(len(source1._values)):
+            if source1._values[i] in source2._values:
+                self._values.append(source1._values[i])
+                source2._values.remove(source1._values[i])
 
         return
 
@@ -294,8 +333,12 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        if self._values == target._values:
+            equals = True
+        else:
+            equals = False
 
-        return
+        return equals
 
     def max(self):
         """
@@ -310,8 +353,12 @@ class Sorted_List:
         assert (len(self._values) > 0), 'Cannot find maximum of an empty list'
 
         # Your code here
+        value = self._values[0]
+        for i in self._values:
+            if i > value:
+                value = deepcopy(i)
 
-        return
+        return value
 
     def min(self):
         """
@@ -326,8 +373,12 @@ class Sorted_List:
         assert (len(self._values) > 0), 'Cannot find minimum of an empty list'
 
         # Your code here
+        value = self._values[0]
+        for i in self._values:
+            if i < value:
+                value = deepcopy(i)
 
-        return
+        return value
 
     def peek(self):
         """
@@ -343,7 +394,7 @@ class Sorted_List:
 
         # Your code here
 
-        return
+        return deepcopy(self._values[0])
 
     def pop(self, *args):
         """
@@ -386,8 +437,13 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        i = self._binary_search(key)
+        if i > -1:
+            value = self._values.pop(i)
+        else:
+            value = None
 
-        return
+        return value
 
     def remove_front(self):
         """
@@ -402,8 +458,9 @@ class Sorted_List:
         assert (len(self._values) > 0), 'Cannot remove from an empty list'
 
         # Your code here
+        value = self._values.pop(0)
 
-        return
+        return value
 
     def remove_many(self, key):
         """
@@ -418,6 +475,8 @@ class Sorted_List:
         ---------------------------------------------------------
         """
         # Your code here
+        while key in self._values:
+            self._values.remove(key)
 
         return
 
@@ -434,8 +493,25 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        target1 = Sorted_List()
+        target2 = Sorted_List()
+        if len(self._values) > 0:
+            mid = len(self._values) // 2
+            i = 0
+            if len(self._values) % 2 != 0:
+                while i <= mid:
+                    target1._values.append(self._values.pop(0))
+                    i += 1
+                while len(self._values) > 0:
+                    target2._values.append(self._values.pop(0))
+            else:
+                while i < mid:
+                    target1._values.append(self._values.pop(0))
+                    i += 1
+                while len(self._values) > 0:
+                    target2._values.append(self._values.pop(0))
 
-        return
+        return target1, target2
 
     def split_alt(self):
         """
@@ -452,8 +528,17 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        target1 = Sorted_List()
+        target2 = Sorted_List()
+        while len(self._values) > 0:
 
-        return
+            target1._values.append(self._values.pop(0))
+
+            if len(self._values) > 0:
+
+                target2._values.append(self._values.pop(0))
+
+        return target1, target2
 
     def split_apply(self, func):
         """
@@ -492,8 +577,16 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
-
-        return
+        target1 = Sorted_List()
+        target2 = Sorted_List()
+        i = 0
+        while i < len(self._values):
+            if self._values[i] < key:
+                target1.insert(self._values[i])
+            else:
+                target2.insert(self._values[i])
+            i += 1
+        return target1, target2
 
     def union(self, source1, source2):
         """
@@ -510,6 +603,9 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        for i in source1._values:
+            if i in source2._values:
+                self._values.append(i)
 
         return
 
