@@ -5,7 +5,7 @@ Linked version of the list ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2023-07-31"
+__updated__ = "2024-02-14"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -58,7 +58,7 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        return self._count == 0
 
     def __len__(self):
         """
@@ -71,7 +71,7 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        return self._count
 
     def prepend(self, value):
         """
@@ -86,6 +86,18 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        if self._front is None:
+
+            node = _List_Node(value, None)
+            self._rear = node
+            self._front = node
+
+        else:
+
+            node = _List_Node(value, self._front)
+            self._front = node
+
+        self._count += 1
         return
 
     def append(self, value):
@@ -101,6 +113,18 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        if self._front is None:
+
+            node = _List_Node(value, None)
+            self._rear = node
+            self._front = node
+
+        else:
+
+            node = _List_Node(value, None)
+            self._rear._next = node
+            self._rear = node
+        self._count += 1
         return
 
     def insert(self, i, value):
@@ -119,6 +143,23 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        if i < 0:
+            i = self._count + i
+        if i <= 0:
+            self.prepend(value)
+        elif i >= self._count:
+            self.append(value)
+        else:
+            j = 0
+            prev = None
+            curr = self._front
+            while j < i:
+                prev = curr
+                curr = curr._next
+                j += 1
+            node = _List_Node(value, curr)
+            prev._next = node
+            self._count += 1
         return
 
     def _linear_search(self, key):
@@ -138,7 +179,19 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        prev = None
+        curr = self._front
+        index = 0
+
+        while curr is not None and curr._value != key:
+            prev = curr
+            curr = curr._next
+            index += 1
+
+        if curr is None:
+            index = -1
+
+        return prev, curr, index
 
     def remove(self, key):
         """
@@ -153,7 +206,30 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        previous, current, _ = self._linear_search(key)
+
+        if current is None:
+
+            value = None
+        else:
+            value = current._value
+            self._count -= 1
+
+            if previous is None:
+
+                self._front = self._front._next
+
+                if self._front is None:
+
+                    self._rear = None
+            else:
+
+                previous._next = current._next
+
+                if previous._next is None:
+
+                    self._rear = previous
+        return value
 
     def remove_front(self):
         """
@@ -198,7 +274,13 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        previous, current, index = self._linear_search(key)
+        if current is None:
+            value = None
+        else:
+            value = deepcopy(current._value)
+
+        return value
 
     def peek(self):
         """
@@ -213,7 +295,7 @@ class List:
         assert self._front is not None, "Cannot peek at an empty list"
 
         # your code here
-        return
+        return deepcopy(self._front._value)
 
     def index(self, key):
         """
@@ -229,7 +311,9 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        previous, current, index = self._linear_search(key)
+        i = index
+        return i
 
     def _is_valid_index(self, i):
         """
@@ -263,7 +347,19 @@ class List:
         assert self._is_valid_index(i), "Invalid index value"
 
         # your code here
-        return
+        current = self._front
+
+        if i < 0:
+
+            i = self._count + i
+        j = 0
+
+        while j < i:
+            current = current._next
+            j += 1
+
+        value = deepcopy(current._value)
+        return value
 
     def __setitem__(self, i, value):
         """
@@ -282,6 +378,19 @@ class List:
         assert self._is_valid_index(i), "Invalid index value"
 
         # your code here
+        current = self._front
+
+        if i < 0:
+
+            i = self._count + i
+        j = 0
+
+        while j < i:
+            current = current._next
+            j += 1
+
+        current._value = deepcopy(value)
+
         return
 
     def __contains__(self, key):
@@ -297,7 +406,9 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        previous, current, index = self._linear_search(key)
+
+        return current is not None
 
     def max(self):
         """
@@ -312,7 +423,15 @@ class List:
         assert self._front is not None, "Cannot find maximum of an empty list"
 
         # your code here
-        return
+        max_node = self._front
+        curr = self._front._next
+
+        while curr is not None:
+            if max_node._value < curr._value:
+                max_node = curr
+            curr = curr._next
+        max_data = deepcopy(max_node._value)
+        return max_data
 
     def min(self):
         """
@@ -327,7 +446,15 @@ class List:
         assert self._front is not None, "Cannot find maximum of an empty list"
 
         # your code here
-        return
+        min_node = self._front
+        curr = self._front._next
+
+        while curr is not None:
+            if min_node._value > curr._value:
+                min_node = curr
+            curr = curr._next
+        min_data = deepcopy(min_node._value)
+        return min_data
 
     def count(self, key):
         """
@@ -342,7 +469,14 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        number = 0
+        curr = self._front
+
+        while curr is not None:
+            if key == curr._value:
+                number += 1
+            curr = curr._next
+        return number
 
     def reverse(self):
         """
