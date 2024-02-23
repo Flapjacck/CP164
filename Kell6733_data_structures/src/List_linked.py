@@ -5,7 +5,7 @@ Linked version of the list ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-02-14"
+__updated__ = "2024-02-22"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -244,7 +244,12 @@ class List:
         assert self._front is not None, "Cannot remove from an empty list"
 
         # your code here
-        return
+        value = self._front._value
+        self._count -= 1
+        self._front = self._front._next
+        if self._front is None:
+            self._rear = None
+        return value
 
     def remove_many(self, key):
         """
@@ -259,6 +264,26 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        f = self._front
+        while f is not None and f._value == key:
+            self.remove_front()
+            f = self._front
+
+        curr = self._front
+        prev = _List_Node(None, None)
+        while curr is not None:
+            if curr._value == key:
+                prev._next = curr._next
+                curr._next = None
+                curr = prev._next
+                self._count -= 1
+            else:
+                prev = curr
+                curr = curr._next
+        if self._count > 0:
+            self._rear = prev
+        else:
+            self._rear = None
         return
 
     def find(self, key):
@@ -521,6 +546,30 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        node = self._front
+
+        while node is not None:
+
+            previous = node
+            current = node._next
+
+            while current is not None:
+
+                if current._value == node._value:
+
+                    previous._next = current._next
+                    self._count -= 1
+
+                else:
+
+                    previous = current
+
+                current = current._next
+
+            self._rear = previous
+
+            node = node._next
+
         return
 
     def pop(self, *args):
@@ -619,7 +668,16 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        equals = self._count == target._count
+        t_node = target._front
+        s_node = self._front
+
+        while s_node is not None and equals is True:
+            if s_node._value != t_node._value:
+                equals = False
+            s_node = s_node._next
+            t_node = t_node._next
+        return equals
 
     def identical_r(self, other):
         """
@@ -651,7 +709,21 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        target1 = List()
+        target2 = List()
+        mid = self._count // 2 + self._count % 2
+
+        if self._front is not None:
+
+            for i in range(mid):
+
+                target1._move_front_to_rear(self)
+
+        while self._front is not None:
+
+            target2._move_front_to_rear(self)
+
+        return target1, target2
 
     def split_alt(self):
         """
@@ -668,7 +740,19 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        target1 = List()
+        target2 = List()
+        left = True
+
+        while self._front is not None:
+
+            if left:
+                target1._move_front_to_rear(self)
+            else:
+                target2._move_front_to_rear(self)
+            left = not left
+
+        return target1, target2
 
     def split_alt_r(self):
         """
@@ -725,6 +809,21 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        source1_node = source1._front
+
+        while source1_node is not None:
+            value = source1_node._value
+            _, current, _ = source2._linear_search(value)
+
+            if current is not None:
+
+                _, current, _ = self._linear_search(value)
+
+                if current is None:
+
+                    self.append(value)
+
+            source1_node = source1_node._next
         return
 
     def intersection_r(self, source1, source2):
@@ -763,6 +862,28 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        source1_node = source1._front
+
+        while source1_node is not None:
+            value = source1_node._value
+            _, current, _ = self._linear_search(value)
+
+            if current is None:
+
+                self.append(value)
+            source1_node = source1_node._next
+
+        source2_node = source2._front
+
+        while source2_node is not None:
+            value = source2_node._value
+            _, current, _ = self._linear_search(value)
+
+            if current is None:
+
+                self.append(value)
+
+            source2_node = source2_node._next
         return
 
     def union_r(self, source1, source2):
@@ -898,6 +1019,24 @@ class List:
             "Cannot move the front of an empty List"
 
         # your code here
+        node = source._front
+
+        source._count -= 1
+        source._front = source._front._next
+
+        if source._front is None:
+
+            source._rear = None
+
+        if self._rear is None:
+            self._front = node
+        else:
+            self._rear._next = node
+
+        node._next = None
+        self._rear = node
+        self._count += 1
+
         return
 
     def combine(self, source1, source2):
@@ -918,6 +1057,28 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        if source1._count >= source2._count:
+
+            while source2._front is not None:
+
+                self._move_front_to_rear(source1)
+                self._move_front_to_rear(source2)
+
+            while source1._front is not None:
+
+                self._move_front_to_rear(source1)
+
+        else:
+
+            while source1._front is not None:
+
+                self._move_front_to_rear(source1)
+                self._move_front_to_rear(source2)
+
+            while source2._front is not None:
+
+                self._move_front_to_rear(source2)
+
         return
 
     def combine_r(self, source1, source2):
