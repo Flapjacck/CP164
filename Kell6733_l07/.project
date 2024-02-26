@@ -3,6 +3,7 @@
 	<name>Kell6733_l07</name>
 	<comment></comment>
 	<projects>
+		<project>Kell6733_data_structures</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

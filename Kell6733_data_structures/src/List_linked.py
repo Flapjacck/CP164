@@ -5,7 +5,7 @@ Linked version of the list ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-02-22"
+__updated__ = "2024-02-26"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -694,7 +694,22 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        if self._count != other._count:
+            identical = False
+        else:
+            identical = self._aux_indentical(self._front, other._front)
+
+        return identical
+
+    def _aux_indentical(self, node1, node2):
+        if node1 is None:
+            identical = True
+        else:
+            if node1._value != node2._value:
+                identical = False
+            else:
+                identical = self._aux_indentical(node1._next, node2._next)
+        return identical
 
     def split(self):
         """
@@ -790,7 +805,25 @@ class List:
         -------------------------------------------------------
         """
         # your code here
-        return
+        prev = None
+        curr = self._front
+        index = 0
+
+        if self._front is not None:
+            prev, curr, index = self._aux_search(key, prev, curr, index)
+        else:
+            index = -1
+
+        return prev, curr, index
+
+    def _aux_search(self, key, prev, curr, index):
+        if curr is None:
+            index = -1
+        elif curr._value != key:
+            prev, curr, index = self._aux_search(
+                key, curr, curr._next, index + 1)
+
+        return prev, curr, index
 
     def intersection(self, source1, source2):
         """
