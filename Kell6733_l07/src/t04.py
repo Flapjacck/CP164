@@ -11,12 +11,20 @@ __updated__ = "2024-02-27"
 # Imports
 from List_linked import List
 
-l = List()
-l.append(1)
-l.append(2)
-l.append(3)
-l.append(4)
-l.append(5)
+source1 = List()
+source2 = List()
+target = List()
 
-even, odd = l.split_alt()
-print(even._front._next._value, odd._front._next._value)
+source1.append(1)
+source1.append(3)
+source1.append(2)
+source1.append(1)
+
+source2.append(1)
+source2.append(2)
+source2.append(3)
+
+target.intersection(source1, source2)
+
+print(target._front._value, target._front._next._value,
+      target._front._next._next._value)

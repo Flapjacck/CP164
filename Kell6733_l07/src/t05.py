@@ -12,11 +12,14 @@ __updated__ = "2024-02-27"
 from List_linked import List
 
 l = List()
-l.append(1)
-l.append(2)
-l.append(3)
-l.append(4)
-l.append(5)
+l.append(22)
+l.append(33)
+l.append(11)
+l.append(55)
+l.append(44)
+l.append(None)
 
-even, odd = l.split_alt()
-print(even._front._next._value, odd._front._next._value)
+l.reverse_r()
+
+print(l._rear._value, l._front._value, l._front._next._value, l._front._next._next._value,
+      l._front._next._next._next._value, l._front._next._next._next._next._value, l._front._next._next._next._next._next._value)

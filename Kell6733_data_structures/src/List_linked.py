@@ -5,7 +5,7 @@ Linked version of the list ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-02-26"
+__updated__ = "2024-02-27"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -516,6 +516,17 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        self._rear = self._front
+        previous = None
+        current = self._front
+
+        while current is not None:
+            temp = current._next
+            current._next = previous
+            previous = current
+            current = temp
+
+        self._front = previous
         return
 
     def reverse_r(self):
@@ -531,6 +542,18 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        self._rear = self._front
+        self._aux_reverse_r(None, self._front)
+
+        return
+
+    def _aux_reverse_r(self, previous, current):
+        if current is None:
+            self._front = previous
+        else:
+            temp = current._next
+            current._next = previous
+            self._aux_reverse_r(current, temp)
         return
 
     def clean(self):
@@ -679,7 +702,7 @@ class List:
             t_node = t_node._next
         return equals
 
-    def identical_r(self, other):
+    def is_identical_r(self, other):
         """
         ---------------------------------------------------------
         Determines whether two lists are identical. 
@@ -786,6 +809,15 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        even = List()
+        odd = List()
+        self._aux_split_(even, odd)
+        return even, odd
+
+    def _aux_split_(self, target1, target2):
+        if self._front is not None:
+            target1._move_front_to_rear(self)
+            self._aux_split_(target2, target1)
         return
 
     def _linear_search_r(self, key):
@@ -876,6 +908,22 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        self._aux_intersection_(source2, source1._front)
+
+        return
+
+    def _aux_intersection_(self, source2, source1_node):
+        if source1_node is not None:
+            value = source1_node._value
+            _, current, _ = source2._linear_search(value)
+
+            if current is not None:
+                _, current, _ = self._linear_search(value)
+
+                if current is None:
+                    self.append(value)
+            self._aux_intersection_(source2, source1_node._next)
+
         return
 
     def union(self, source1, source2):
@@ -936,7 +984,16 @@ class List:
         -------------------------------------------------------
         """
         # your code here
+        self._aux_union_(source1._front)
+        self._aux_union_(source2._front)
         return
+
+    def _aux_union_(self, node):
+        if node is not None:
+            _, current, _ = self._linear_search(node._value)
+            if current is None:
+                self.append(node._value)
+            self._aux_union_(node._next)
 
     def clean_r(self):
         """

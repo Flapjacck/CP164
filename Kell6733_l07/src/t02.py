@@ -5,7 +5,7 @@
 Author:  Spencer Kelly
 ID:         169066733
 Email:   Kell6733@mylaurier.ca
-__updated__ = "2024-02-26"
+__updated__ = "2024-02-27"
 -------------------------------------------------------
 """
 # Imports
@@ -23,4 +23,4 @@ l2.append(3)
 l2.append(4)
 l2.append(5)
 
-print(l.identical_r(l2))
+print(l.is_identical_r(l2))
