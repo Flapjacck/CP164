@@ -11,6 +11,52 @@ Version: 2024-03-10
 -------------------------------------------------------
 t01
 -------------------------------------------------------
+Hashes
+Hash     Slot Key
+======== ==== ====================
+     695    2 Lasagna, 7
+    1355    4 Butter Chicken, 2
+    1284    3 Moo Goo Guy Pan, 1
+    1521    2 Vegetable Alicha, 3
+    1147    6 Spanakopita, 5
+    1132    5 Chirashi Don, 6
+    1244    5 Canuck Burger, 0
+     949    4 Turducken, 8
+    1277    3 Shark Fin Soup, 1
+     704    4 Chamuco, 4
+     518    0 Natto, 6
+    1630    6 Canada Goose Chili, 0
+    3011    1 Diet Free-Range Gluten-free Water, 8
+    1450    1 Kung Pao Chicken, 1
+    1751    1 General Tao Chicken, 1
+    2130    2 Spicy Vegetable Moo Shu, 1
+     657    6 BBQ Pork, 1
+    1329    6 Orange Chicken, 1
+    2595    5 Vegetables with Cashew Nuts, 1
+    1232    0 Lemon Chicken, 1
+    2027    4 Beef with Green Pepper, 1
+    1760    3 Sweet and Sour Pork, 1
+    1492    1 Szechuan Shrimp, 1
+     740    5 Poutine, 0
+    1046    3 Teppanyaki, 6
+    1011    3 Greek Salad, 5
+    1034    5 Fettuccine, 7
+     834    1 Teriyaki, 6
+    1070    6 Shortbread , 9
+     729    1 Pavlova, 10
+    1889    6 Hokey Pokey Ice Cream, 10
+     615    6 Fricot, 0
+     956    4 Chip Butty, 11
+    1357    6 Grilled Salmon, 0
+     726    5 Ravioli, 7
+     495    5 Crepe, 7
+     909    6 Fried Rice, 1
+    1504    6 Pepperoni Pizza, 7
+    1204    0 Chicken Kabob, 2
+    1072    1 Panzerotti, 7
+    1183    0 Spring Rolls, 1
+    1551    4 Chicken Chow Mein, 1
+    1245    6 Chicken Wings, 8
 
 -------------------------------------------------------
 t02

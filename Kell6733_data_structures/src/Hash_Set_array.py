@@ -5,7 +5,7 @@ Array-based list version of the Hash Set ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2023-05-07"
+__updated__ = "2024-03-11"
 -------------------------------------------------------
 """
 # pylint: disable=protected-access
@@ -81,8 +81,9 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
-
+        hkey = hash(key) % self._capacity
+        slot = self._table[hkey]
+        return slot
 
     def __contains__(self, key):
         """
@@ -97,8 +98,8 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
-
+        slot = self._find_slot(key)
+        return key in slot
 
     def insert(self, value):
         """
@@ -114,8 +115,22 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
+        slot = self._find_slot(value)
 
+        if value in slot:
+
+            inserted = False
+
+        else:
+
+            inserted = True
+            slot.insert(0, value)
+            self._count += 1
+
+            if self._count > (Hash_Set._LOAD_FACTOR * self._capacity):
+                self._rehash()
+
+        return inserted
 
     def find(self, key):
         """
@@ -132,7 +147,6 @@ class Hash_Set:
         # your code here
         return
 
-		
     def remove(self, key):
         """
         ---------------------------------------------------------
@@ -146,8 +160,12 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
+        slot = self._find_slot(key)
+        value = slot.remove(key)
 
+        if value is not None:
+            self._count -= 1
+        return value
 
     def _rehash(self):
         """
@@ -161,8 +179,23 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
+        temp = self._table
+        self._capacity = self._capacity * 2 + 1
+        self._table = []
 
+        for _ in range(self._capacity):
+            self._table.append(List())
+
+        while len(temp) > 0:
+
+            ogSlot = temp.pop(0)
+
+            while not ogSlot.is_empty():
+                value = ogSlot.remove_front()
+                slot = self._find_slot(value)
+                slot.insert(0, value)
+
+        return
 
     def __eq__(self, target):
         """
@@ -182,7 +215,6 @@ class Hash_Set:
         # your code here
         return
 
-
     def debug(self):
         """
         USE FOR TESTING ONLY
@@ -197,8 +229,19 @@ class Hash_Set:
         -------------------------------------------------------
         """
         # your code here
-        return
+        print("{} Slots".format(self._capacity))
 
+        for i in range(len(self._table)):
+
+            print(SEP)
+            print("Slot {}".format(i))
+            print()
+
+            for j in self._table[i]:
+                print(j)
+
+        print(SEP)
+        return
 
     def __iter__(self):
         """

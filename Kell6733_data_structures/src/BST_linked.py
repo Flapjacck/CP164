@@ -5,7 +5,7 @@ Linked version of the BST ADT.
 Author:  David Brown
 ID:      999999999
 Email:   dbrown@wlu.ca
-__updated__ = "2024-03-08"
+__updated__ = "2024-03-11"
 -------------------------------------------------------
 """
 # Imports
@@ -273,7 +273,17 @@ class BST:
         """
 
         # your code here
+        child = parent._right
 
+        if child._right is None:
+
+            repl_node = child
+
+            parent._right = child._left
+        else:
+            repl_node = self._delete_node_left(child)
+
+        parent._update_height()
         return repl_node
 
     def __contains__(self, key):
