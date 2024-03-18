@@ -5,7 +5,7 @@ Linked version of the BST ADT.
 Author:  David Brown
 ID:      999999999
 Email:   dbrown@wlu.ca
-__updated__ = "2024-03-11"
+__updated__ = "2024-03-18"
 -------------------------------------------------------
 """
 # Imports
@@ -300,6 +300,8 @@ class BST:
         """
 
         # your code here
+        value = self.retrieve(key)
+        return value is not None
 
     def height(self):
         """
@@ -368,6 +370,27 @@ class BST:
         assert self._root is not None, "Cannot locate a parent in an empty BST"
 
         # your code here
+        value = None
+        parent = self._root
+
+        if parent._value != key:
+
+            if key > parent._value:
+                node = parent._right
+            else:
+                node = parent._left
+
+            while node is not None and value is None:
+                if node._value == key:
+                    value = deepcopy(parent._value)
+                elif key > node._value:
+                    parent = node
+                    node = node._right
+                elif key < node._value:
+                    parent = node
+                    node = node._left
+
+        return value
 
     def parent_r(self, key):
         """
@@ -384,6 +407,25 @@ class BST:
         assert self._root is not None, "Cannot locate a parent in an empty BST"
 
         # your code here
+        return self._parent_aux(self._root, key, None)
+
+    def _parent_aux(self, node, key, parent):
+        if node is None:
+
+            value = None
+        elif key < node._value:
+
+            value = self._parent_aux(node._left, key, node)
+        elif key > node._value:
+
+            value = self._parent_aux(node._right, key, node)
+        elif parent is None:
+
+            value = None
+        else:
+
+            value = deepcopy(parent._value)
+        return value
 
     def max(self):
         """
@@ -539,6 +581,10 @@ class BST:
         """
 
         # your code here
+        zero = self.leaf_count()
+        one = self.one_child_count()
+        two = self.two_child_count()
+        return zero, one, two
 
     def is_balanced(self):
         """

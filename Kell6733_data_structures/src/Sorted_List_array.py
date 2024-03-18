@@ -5,7 +5,7 @@ Array version of the Sorted_List ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-02-02"
+__updated__ = "2024-03-18"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -314,8 +314,12 @@ class Sorted_List:
         -------------------------------------------------------
         """
         # Your code here
+        if len(self._values) == 0:
+            is_empty = True
+        else:
+            is_empty = False
 
-        return
+        return is_empty
 
     def __eq__(self, target):
         """
