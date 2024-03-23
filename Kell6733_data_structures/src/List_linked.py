@@ -5,7 +5,7 @@ Linked version of the list ADT.
 Author:  David Brown
 ID:      123456789
 Email:   dbrown@wlu.ca
-__updated__ = "2024-02-27"
+__updated__ = "2024-03-22"
 -------------------------------------------------------
 """
 from copy import deepcopy
@@ -672,7 +672,35 @@ class List:
             None
         -------------------------------------------------------
         """
-        # your code here
+        if pln is not prn:
+            # Swap only if two nodes are not the same node
+
+            if pln is None:
+                # Make r the new front
+                left = self._front
+                self._front = prn._next
+            else:
+                left = pln._next
+                pln._next = prn._next
+
+            if prn is None:
+                # Make l the new front
+                right = self._front
+                self._front = left
+            else:
+                right = prn._next
+                prn._next = left
+
+            # Swap next pointers
+            # lst._next, r._next = r._next, lst._next
+            temp = left._next
+            left._next = right._next
+            right._next = temp
+            # Update the rear
+            if right._next is None:
+                self._rear = right
+            elif left._next is None:
+                self._rear = left
         return
 
     def __eq__(self, target):
