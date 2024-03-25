@@ -5,7 +5,7 @@ Array versions of various sorts.
 Author:  David Brown
 ID:      999999999
 Email:   dbrown@wlu.ca
-__updated__ = "2023-04-04"
+__updated__ = "2024-03-25"
 -------------------------------------------------------
 """
 # Imports
@@ -710,4 +710,90 @@ class Sorts:
         Sorts.swaps += 0.34
 
         a[i] = a[j]
+        return
+
+    @staticmethod
+    def radix_sort(a):
+        """
+        -------------------------------------------------------
+        Performs a base 10 radix sort.
+        Use: Sorts.radix_sort(a)
+        -------------------------------------------------------
+        Parameters:
+            a - an array of base 10 integers (list)
+        Returns:
+            None
+        -------------------------------------------------------
+        """
+        array = [[], [], [], [], [], [], [], [], [], []]
+        max = 0
+
+        for n in a:
+
+            num_length = len(str(n))
+
+            if num_length > max:
+                max = num_length
+
+        for i in range(1, max + 1):
+
+            for num in a:
+
+                num_lgth = len(str(num))
+
+                if num_lgth >= i:
+
+                    digit = str(num)[-i]
+                    digit = int(digit)
+                    array[digit].append(num)
+
+                else:
+
+                    array[0].append(num)
+
+            a.clear()
+            for slot in array:
+                for x in slot:
+                    a.append(x)
+
+            array = [[], [], [], [], [], [], [], [], [], []]
+
+        return
+
+    @staticmethod
+    def gnome_sort(a):
+        """
+        -------------------------------------------------------
+        Sorts an array using the Gnome Sort algorithm.
+        Use: gnome_sort(a)
+        -------------------------------------------------------
+        Parameters:
+            a - an array of comparable elements (list)
+        Returns:
+            None
+        -------------------------------------------------------
+        """
+        gnome = 0
+        sorted = False
+
+        while not sorted:
+
+            if gnome == 0:
+
+                if gnome >= len(a) - 1:
+                    sorted = True
+                else:
+                    gnome += 1
+
+            elif a[gnome - 1] <= a[gnome]:
+
+                if gnome == len(a) - 1:
+                    sorted = True
+                else:
+                    gnome += 1
+
+            elif a[gnome - 1] > a[gnome]:
+                Sorts._swap(a, gnome, gnome - 1)
+                gnome -= 1
+
         return
